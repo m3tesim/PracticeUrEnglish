@@ -149,6 +149,9 @@ footer span{
 
   background-color: #424E57;
 }
+footer div{
+  margin-left: 2rem;
+}
 
 .rank-page{
   background: rgba(226, 144, 63, 0.82);

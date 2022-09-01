@@ -6,9 +6,8 @@ const data = require('./testData.json');
 const randomWords= require('./functions') ;
 
 app.use(cors());
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -30,32 +29,23 @@ app.get('/data/wordList', (req, res) => {
 
 
 
-app.get('/data/:score', (req, res) => {
-  const score = req.params.score
-let belowScore=data.scoresList.filter(s=>s<score)
-const persantage=(belowScore.length/data.scoresList.length)*100
 
-  res.json("%"+persantage.toFixed(2))
-
-})
-
-
-app.post('/data/:score', (request, response) => {
- // const score = Number(request.params.score)
-
-  const score = Number(request.body)
-
+app.post('/result', (req, res) => {
+  //console.log(req.body);
+  const score = req.body.score
   if (!score) {
     return response.status(400).json({ 
-      error: 'content missing' 
+      error: 'content is  missing' 
     })
   }
+  let belowScore=data.scoresList.filter(s=>s<score)
+  const persantage=(belowScore.length/data.scoresList.length)*100
+  
+    res.json("%"+persantage.toFixed(2))
+});
 
 
-  score = data.scoresList.concat(score)
 
-  response.json(score)
-})
 
 
 

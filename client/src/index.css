@@ -150,4 +150,37 @@ footer span{
   background-color: #424E57;
 }
 
+.rank-page{
+  background: rgba(226, 144, 63, 0.82);
+  overflow: hidden;
+  height: 100vh;
+  z-index: 1;
+}
+.btn-try-again{
+  background-color: #fff1e7;
+  padding: .5rem 3rem;
+  border: none;
+  color: aliceblue;
+  font-size: 1.3rem;
+  border-radius: 2px;
+  margin-top: 3rem;
+}
 
+.btn-try-again a{
+  text-decoration: none;
+  font-weight: 500;
+  color: black;
+}
+
+.btn-try-again:hover{
+  color: aliceblue;
+  background-color: rgb(45, 45, 45);
+}
+.btn-try-again a:hover{
+ 
+  color:aliceblue;
+}
+.rank{
+  font-size: 1.5rem;
+  font-weight: 700;
+}

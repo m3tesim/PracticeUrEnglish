@@ -11,7 +11,7 @@ root.render(
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<App />}/>
-    <Route path="/result" element={<ScoreResult/>}/>
+    <Route path="/result/:score" element={<ScoreResult/>}/>
 
 
     </Routes>

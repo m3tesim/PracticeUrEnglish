@@ -49,10 +49,26 @@ function App() {
     //reset value for new question
     setValue(null);
     // counting till ten questions have been recieved
-    if (count < 9) {
+    //axios.post(`http://localhost:3001/data`,{answersScore})
+    if (count < 2) {
       setCount(count + 1);
     } else {
-      navigate("/result");
+      navigate(`/result/${answersScore}`);
+
+      //axios.post(`http://localhost:3001/data`,{})
+        /*.then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+*/
+      // postRequest.then((response) => {
+      //   console.log("this is response from module 1",response.data)
+
+      // return  navigate(`/result/${response.data}`);
+      //setWords(response.data);
+      // })
     }
 
     //console.log(answers,"this is the array of answerd questions");

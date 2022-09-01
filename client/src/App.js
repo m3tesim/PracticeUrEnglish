@@ -1,14 +1,17 @@
 //import { getWords } from "./dataModules";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [words, setWords] = useState("");
   const [count, setCount] = useState(0);
   const [value, setValue] = useState(null);
-  const[correctAnswers,setCorrectAnswers]=useState([])
+  const [correctAnswers, setCorrectAnswers] = useState([]);
   const [answersScore, setAnswersScore] = useState(null);
   const checkedRef = useRef([]);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     function getWords() {
@@ -20,7 +23,7 @@ function App() {
         return setWords(response.data);
       });
     }
-  //  console.log(words);
+    //  console.log(words);
     getWords();
   }, []);
 
@@ -35,25 +38,33 @@ function App() {
     //add current choosed value to the array of answers in state
     console.log(value, "the value adeed");
     if (value === words[count].pos) {
-      setCorrectAnswers([...correctAnswers,true])
+      setCorrectAnswers([...correctAnswers, true]);
       setAnswersScore(answersScore + 10);
-    }else{ setCorrectAnswers([...correctAnswers,false])}
+    } else {
+      setCorrectAnswers([...correctAnswers, false]);
+    }
     //map through the checkBox inputs stored in checkedRef to reset thier values after submiting the answer
     checkedRef.current.map((element) => (element.checked = false));
 
     //reset value for new question
     setValue(null);
-    // counting till ten questions have been recieved 
-    if (count<9){setCount(count+1)}
-    
+    // counting till ten questions have been recieved
+    if (count < 9) {
+      setCount(count + 1);
+    } else {
+      navigate("/result");
+    }
 
     //console.log(answers,"this is the array of answerd questions");
   };
-  console.log("this is the coorect answers array",correctAnswers);
+  console.log("this is the coorect answers array", correctAnswers);
 
-  console.log( "this is the array current score",answersScore);
-console.log("the current answers is ",correctAnswers[count-1]||"no value");
-console.log("this is count ",  count);
+  console.log("this is the array current score", answersScore);
+  console.log(
+    "the current answers is ",
+    correctAnswers[count - 1] || "no value"
+  );
+  console.log("this is count ", count);
   return (
     <>
       <div className="main-container">
@@ -125,16 +136,86 @@ console.log("this is count ",  count);
       </div>
       <footer>
         Progress:
-        <span className={correctAnswers[0]===true ?"right": correctAnswers[0]===false ?"wrong":""}></span>
-        <span className={correctAnswers[1]===true ?"right":correctAnswers[1]===false ?"wrong":""}></span>
-        <span className={correctAnswers[2]===true ?"right":correctAnswers[2]===false ?"wrong":""}></span>
-        <span className={correctAnswers[3]===true ?"right":correctAnswers[3]===false ?"wrong":""}></span>
-        <span className={correctAnswers[4]===true ?"right":correctAnswers[4]===false ?"wrong":""}></span>
-        <span className={correctAnswers[5]===true ?"right":correctAnswers[5]===false ?"wrong":""}></span>
-        <span className={correctAnswers[6]===true ?"right":correctAnswers[6]===false ?"wrong":""}></span>
-        <span className={correctAnswers[7]===true ?"right":correctAnswers[7]===false ?"wrong":""}></span>
-        <span className={correctAnswers[8]===true ?"right":correctAnswers[8]===false ?"wrong":""}></span>
-        <span className={correctAnswers[9]===true ?"right":correctAnswers[9]===false ?"wrong":""}></span>
+        <span
+          className={
+            correctAnswers[0] === true
+              ? "right"
+              : correctAnswers[0] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[1] === true
+              ? "right"
+              : correctAnswers[1] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[2] === true
+              ? "right"
+              : correctAnswers[2] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[3] === true
+              ? "right"
+              : correctAnswers[3] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[4] === true
+              ? "right"
+              : correctAnswers[4] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[5] === true
+              ? "right"
+              : correctAnswers[5] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[6] === true
+              ? "right"
+              : correctAnswers[6] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[7] === true
+              ? "right"
+              : correctAnswers[7] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[8] === true
+              ? "right"
+              : correctAnswers[8] === false
+              ? "wrong"
+              : ""
+          }></span>
+        <span
+          className={
+            correctAnswers[9] === true
+              ? "right"
+              : correctAnswers[9] === false
+              ? "wrong"
+              : ""
+          }></span>
       </footer>
     </>
   );

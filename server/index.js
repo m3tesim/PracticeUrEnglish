@@ -3,30 +3,20 @@ const cors = require('cors');
 
 const app = express()
 const data = require('./testData.json');
-const randomWords= require('./functions') ;
+const randomWords= require('./modules/randomWords') ;
+const getRank= require('./modules/getRank') ;
+
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
-})
 
 app.get('/data', (req, res) => {
   const Words=randomWords(data.wordList)
   res.json(Words)
 })
-
-app.get('/data/wordList', (req, res) => {
-  const newdata=randomWords(data.wordList)
-
-  res.json(newdata)
-})
-
-
-
 
 
 
@@ -38,11 +28,13 @@ app.post('/result', (req, res) => {
       error: 'content is  missing' 
     })
   }
-  let belowScore=data.scoresList.filter(s=>s<score)
-  const persantage=(belowScore.length/data.scoresList.length)*100
+
+  
+  const persantage=getRank(data.scoresList,score)
   
     res.json("%"+persantage.toFixed(2))
 });
+
 
 
 

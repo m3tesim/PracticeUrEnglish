@@ -16,7 +16,6 @@ const ScoreResult =()=>{
           return response.then((response) => {
             //   console.log("this is response from module 1",response.data)
     
-            console.log(response.data);
             setRank(response.data)
           });
         }
@@ -26,7 +25,7 @@ const ScoreResult =()=>{
     return(
         <div className="rank-page main-container ">
             <h1 className="title">Congratulations you finished the game ! </h1>
-            <h2 >Your Rank is  <spna className="rank">{rank}</spna></h2>
+            <h2 >Your Rank is  <span className="rank">{rank}</span></h2>
             <button className="btn-try-again"><Link to="/">Try Again</Link></button>
         </div>
     )

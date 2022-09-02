@@ -8,11 +8,13 @@ const randomWords=(list)=>{
   const length=list.length-1
   //store selected words 
   const selectedWords=[]
-  //select a random Part of Speech
   
+  //select a random Part of Speech
   const partOfSpeech=(wordType)=>{
+    //this will select a random word from our data
     let random=Math.floor(Math.random() * (length) + 1)
     let word= list[random]
+    //finding the desired type of the word to return it or run the function again 
     if(selectedWords.includes(word))return partOfSpeech(wordType)
     if (word.pos!==wordType) return partOfSpeech(wordType)
   
@@ -27,7 +29,7 @@ const randomWords=(list)=>{
   
   
   
-  //select a random word 
+  //select a random word with a random type  to fill the array of words
   for (selectedWords.length;selectedWords.length<10;selectedWords){
     let random=Math.floor(Math.random() * (length) + 1)
   let word= list[random]
@@ -42,6 +44,9 @@ const randomWords=(list)=>{
   return selectedWords
   
   }
+
+
+
 
 
 

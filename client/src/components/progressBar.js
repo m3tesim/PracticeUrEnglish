@@ -1,88 +1,26 @@
-const ProgressBar = ({ correctAnswers }) => {
+const ProgressBar = ({ answers ,questions}) => {
+  //if the questions array not defined we declare it with an empty array
+   let progressQuestion=questions||[]
+
+  //calculate the persentage of the progress
+  let progress=(answers.length/questions.length)*100
+      progress.toFixed(2)
   return (
     <footer>
       Progress:
-      <span
-        className={
-          correctAnswers[0] === true
-            ? "right"
-            : correctAnswers[0] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[1] === true
-            ? "right"
-            : correctAnswers[1] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[2] === true
-            ? "right"
-            : correctAnswers[2] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[3] === true
-            ? "right"
-            : correctAnswers[3] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[4] === true
-            ? "right"
-            : correctAnswers[4] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[5] === true
-            ? "right"
-            : correctAnswers[5] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[6] === true
-            ? "right"
-            : correctAnswers[6] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[7] === true
-            ? "right"
-            : correctAnswers[7] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[8] === true
-            ? "right"
-            : correctAnswers[8] === false
-            ? "wrong"
-            : ""
-        }></span>
-      <span
-        className={
-          correctAnswers[9] === true
-            ? "right"
-            : correctAnswers[9] === false
-            ? "wrong"
-            : ""
-        }></span>
-        <div >{correctAnswers.length}0%</div>
+
+      {progressQuestion.map((q,index)=>(
+         <span 
+         key={index}
+         className={
+           answers[index] === true
+             ? "right"
+             : answers[index] === false
+             ? "wrong"
+             : ""
+         }></span>
+      ))}
+        <div >{progress}%</div>
     </footer>
   );
 };

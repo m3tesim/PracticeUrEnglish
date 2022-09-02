@@ -1,4 +1,4 @@
-const Form =({submitWord,handleCheck,checkedRef})=>{
+const Form =({value,submitWord,handleCheck,checkedRef})=>{
     return(
         <form onSubmit={(e) => submitWord(e)}>
             <div>
@@ -48,8 +48,9 @@ const Form =({submitWord,handleCheck,checkedRef})=>{
               <label htmlFor="adverb"> Adverb</label>
             </div>
             <div>
-              <button type="submit" className="btn-confirm">
-                {" "}
+              <button type="submit" className="btn-confirm"
+                      disabled={value===null}> 
+                
                 Confirm{" "}
               </button>
             </div>

@@ -115,6 +115,10 @@ label:hover {
   border-radius: 5px;
   margin-bottom: 3rem;
 }
+.btn-confirm:disabled,.btn-confirm:disabled:hover{
+  background-color: #6a6663;
+
+}
 .btn-confirm:hover{
   background-color: #F8A468;
   
@@ -147,7 +151,7 @@ footer span{
 }
  .wrong{
 
-  background-color: #424E57;
+  background-color: #ae352e;
 }
 footer div{
   margin-left: 2rem;

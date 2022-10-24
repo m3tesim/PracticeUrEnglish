@@ -1,7 +1,6 @@
 # Game of words 
-this project is about a game where you can practice English part of speach words 
-the project contain two parts server and client 
-you have to run both for it to work 
+this project is about a game w4here you can practice English part of speach words 
+where you would choose between 4 options and get instant feedback with final score 
 
 online view at https://practice-english-nu.vercel.app/
 

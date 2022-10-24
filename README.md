@@ -3,6 +3,7 @@ this project is about a game where you can practice English part of speach words
 the project contain two parts server and client 
 you have to run both for it to work 
 
+online view at https://practice-english-nu.vercel.app/
 
 ###  start the app
 in the command prompt write `npm install` then start the app  with `npm start`
